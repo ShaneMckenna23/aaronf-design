@@ -1,18 +1,17 @@
-import React from "react";
-import Typist from "react-typist"
+import React from 'react'
+import styles from './hero.module.css'
 
-const Navbar = () => (
-  <section className="hero">
-    <div className="hero-body">
-      <div className="container">
-        <h1 className="title">Hero title</h1>
-        <h2 className="subtitle">Hero subtitle</h2>
-        <Typist>
-            Animate this text.
-        </Typist>
-      </div>
+export default ({ person }) => (
+  <div className={styles.hero}>
+    <img
+      className={styles.heroImage}
+      src={`${person.node.image.file.url}?w=1180&h=600&fit=pad&bg=rgb:000000`}
+      alt=""
+    />
+    <div className={styles.heroDetails}>
+      <h3 className={styles.heroHeadline}>{person.node.name}</h3>
+      <p className={styles.heroTitle}>{person.node.title}</p>
+      <p>{person.node.shortBio.shortBio}</p>
     </div>
-  </section>
-);
-
-export default Navbar;
+  </div>
+)
